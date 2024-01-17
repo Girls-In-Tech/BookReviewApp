@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9PNUAAeW9AhrE/RS6xqM2u8g5g7TJbw"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/templates/css/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="images/registration-form-6.jpg" alt="">
+        </div>
+
+    <form action="/add-books" th:action="@{/addBooks}" th:object="${book}" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <input type="text" th:field="*{title}" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="form-row">
+            <input type="text" th:field="*{author}" class="form-control" placeholder="Author" required>
+        </div>
+        <div class="form-holder">
+            <input type="date" th:field="*{publicationDate}" class="form-control" placeholder="Date">
+        </div>
+        <div class="form-holder">
+            <input type="number" th:field="*{rating}" class="form-control" step="0.1" min="0" max="5" placeholder="Rate" required>
+        </div>
+        <div class="form-holder">
+                <textarea class="form-control" th:field="*{review}" style="height: 130px;" placeholder="Review"></textarea>
+        </div>
+        <div class="form-row">
+            <input type="file" class="form-control-file" id="picture" name="picture" placeholder="Add Cover">
+        </div>
+        <a href="/templates/home.html">
+            <button type="submit" class="btn btn-primary">Add Book
+                <i class="zmdi zmdi-long-arrow-right"></i>
+            </button>
+        </a>
+    </form>
+</div>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
